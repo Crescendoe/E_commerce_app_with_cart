@@ -19,6 +19,15 @@ class ShopPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              // Navigate to the cart page
+              Navigator.pushNamed(context, '/cart');
+            },
+          ),
+        ],
       ),
       drawer: const MyDrawer(),
       backgroundColor: Theme.of(context).colorScheme.surface,
@@ -29,9 +38,9 @@ class ShopPage extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: Text(
               'Check out our products below',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: Theme.of(context).colorScheme.inversePrimary,
-                ),
+              ),
               textAlign: TextAlign.center,
             ),
           ),

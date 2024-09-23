@@ -1,5 +1,7 @@
 import 'package:e_commerce_app_with_cart/models/product.dart';
+import 'package:e_commerce_app_with_cart/models/shop.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyProductTile extends StatelessWidget {
   final Product product;
@@ -8,6 +10,36 @@ class MyProductTile extends StatelessWidget {
     super.key,
     required this.product,
   });
+
+  // Add to cart button pressed
+  void addToCart(BuildContext context) {
+    // show a dialog box to ask user for confirmation to add to cart
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        content: Text('Would you like to add ${product.name} to your cart?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(
+              'Cancel',
+              style: TextStyle(color: Colors.grey[800]),
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              context.read<Shop>().addProductToCart(product);
+            },
+            child: Text(
+              'Yes',
+              style: TextStyle(color: Colors.grey[800]),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +71,7 @@ class MyProductTile extends StatelessWidget {
                   child: const Icon(Icons.favorite),
                 ),
               ),
-
               const SizedBox(height: 25),
-
               // product name
               Text(
                 product.name,
@@ -50,9 +80,7 @@ class MyProductTile extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
               const SizedBox(height: 10),
-
               // product description
               Text(
                 product.description,
@@ -63,15 +91,13 @@ class MyProductTile extends StatelessWidget {
               ),
             ],
           ),
-
           const SizedBox(height: 25),
-
           // product price + add to cart button
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Price
               Text('\$' + product.price.toStringAsFixed(2)),
-
               // Add to cart button
               Container(
                 decoration: BoxDecoration(
@@ -80,7 +106,7 @@ class MyProductTile extends StatelessWidget {
                 ),
                 child: IconButton(
                   icon: const Icon(Icons.add),
-                  onPressed: () {},
+                  onPressed: () => addToCart(context),
                 ),
               )
             ],
