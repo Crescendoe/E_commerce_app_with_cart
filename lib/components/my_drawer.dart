@@ -33,7 +33,13 @@ class MyDrawer extends StatelessWidget {
                 MyListTile(
                 text: "Shop",
                 icon: Icons.home,
-                onTap: () => Navigator.pop(context), // Only pops the drawer
+                onTap: () {
+                  // Pop drawer
+                  Navigator.pop(context); // First, pops the drawer
+
+                  // Navigate to Shop Page
+                  Navigator.pushNamed(context, '/shop'); // Then, navigates to the shop page
+                },
                 ),
 
                 // Cart Title

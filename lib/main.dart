@@ -30,7 +30,5 @@ class MyApp extends StatelessWidget {
         '/cart': (context) => const CartPage(),
       }
     );
-    
-    
   } 
 }

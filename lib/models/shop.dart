@@ -6,26 +6,26 @@ class Shop extends ChangeNotifier{
   // Products for Sale
   final List<Product> _shop = [
   
-  Product(
-    name: 'Product 1',
-    description: 'assets/images/product1.png',
-    price: 100.0,
-  ),
-  Product(
-    name: 'Product 2',
-    description: 'assets/images/product2.png',
-    price: 200.0,
-  ),
-  Product(
-    name: 'Product 3',
-    description: 'assets/images/product3.png',
-    price: 300.0,
-  ),
-  Product(
-    name: 'Product 4',
-    description: 'assets/images/product4.png',
-    price: 400.0,
-  ),
+    Product(
+      name: 'Product 1',
+      description: 'Item description..more of the descrption to test the text overflow..',
+      price: 100.0,
+    ),
+    Product(
+      name: 'Product 2',
+      description: 'Item description..more of the descrption to test the text overflow..',
+      price: 200.0,
+    ),
+    Product(
+      name: 'Product 3',
+      description: 'Item description..more of the descrption to test the text overflow...',
+      price: 300.0,
+    ),
+    Product(
+      name: 'Product 4',
+      description: 'Item description..more of the descrption to test the text overflow..',
+      price: 400.0,
+    ),
   ];
 
   // User cart
